@@ -13,11 +13,15 @@ public class FlagsTest {
     public void testGetFlag() {
         FlagFactory factory = new FlagFactory();
 
-        List<Color> colors = factory.getFlagColors(Nationality.DUTCH);
+        List<Color> colorsDutch = factory.getFlagColors(Nationality.DUTCH);
 
-        assertEquals(Color.RED, colors.get(0));
-        assertEquals(Color.WHITE, colors.get(1));
-        assertEquals(Color.BLUE, colors.get(2));
+        assertEquals(Color.RED, colorsDutch.get(0));
+        assertEquals(Color.WHITE, colorsDutch.get(1));
+        assertEquals(Color.BLUE, colorsDutch.get(2));
+    
+        List<Color> colorsUnclassified = factory.getFlagColors(Nationality.UNCLASSIFIED);
+        
+        assertEquals(Color.GRAY, colorsUnclassified.get(0));
     }
 
 }

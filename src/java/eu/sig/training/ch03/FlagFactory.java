@@ -22,16 +22,11 @@ public class FlagFactory {
         FLAGS.put(HUNGARIAN, new HungarianFlag());
         FLAGS.put(BULGARIAN, new BulgarianFlag());
         FLAGS.put(RUSSIA, new RussianFlag());
-        FLAGS.put(UNCLASSIFIED, new UnclassifiedFlag());
     }
     
     public List<Color> getFlagColors(Nationality nationality) {
-        Flag flag = getFlag(nationality);
-        return flag != null ? flag.getColors() : getFlag(UNCLASSIFIED).getColors();
-    }
-
-    public Flag getFlag(Nationality nationality) {
-        return FLAGS.get(nationality);
+        Flag flag = FLAGS.get(nationality);
+        return flag != null ? flag.getColors() : new UnclassifiedFlag().getColors();
     }
 
 }
